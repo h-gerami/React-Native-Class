@@ -64,7 +64,6 @@ const ListScreen = () => {
   const isIos = Platform.OS === 'ios';
   return (
     <View>
-      {isIos ? <Text>it is ios</Text> : <Text>it is android</Text>}
       <Text>{isIos ? 'it is ios' : 'it is android'}</Text>
       <FlatList
         data={listData}

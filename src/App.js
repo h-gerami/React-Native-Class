@@ -6,6 +6,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './Pages/HomeScreen';
 import ListScreen from './Pages/ListScreen';
 import CounterScreen from './Pages/CounterScreen';
+import ColorGenerator from './Pages/ColorGenerator';
+import TextScreen from './Pages/TextScreen';
+import PageLayout from './Pages/PageLayout';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +19,9 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="ListScreen" component={ListScreen} />
         <Stack.Screen name="CounterScreen" component={CounterScreen} />
+        <Stack.Screen name="ColorGenerator" component={ColorGenerator} />
+        <Stack.Screen name="TextScreen" component={TextScreen} />
+        <Stack.Screen name="PageLayout" component={PageLayout} />
       </Stack.Navigator>
     </NavigationContainer>
   );

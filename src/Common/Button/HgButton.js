@@ -1,19 +1,26 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {CColor} from '../../Global/Style';
 const HgButton = props => {
   const {onPress, type, title} = props;
   const backGroundColorReturner = () => {
     if (type === 'danger') {
-      return 'red';
+      return CColor.red;
+    } else if (type === 'success') {
+      return CColor.green;
+    } else if (type == 'primary') {
+      return CColor.blue;
     } else {
-      return 'white';
+      return CColor.white;
     }
   };
   return (
     <TouchableOpacity
       style={[styles.button, {backgroundColor: backGroundColorReturner()}]}
       onPress={onPress}>
-      <Text style={[styles.buttonText, type && {color: 'white'}]}>{title}</Text>
+      <Text style={[styles.buttonText, type && {color: CColor.white}]}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -42,6 +49,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: 'black',
+    color: CColor.black,
   },
 });

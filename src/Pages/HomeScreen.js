@@ -1,41 +1,47 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Button,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
-import {HgButton, UserList} from '../Common';
+import {View, Text, StyleSheet} from 'react-native';
+import {HgButton} from '../Common';
 
 function HomeScreen(props) {
   const {navigation} = props;
-  //   console.log(props);
-  //   const test = {
-  //     name: 'hossein',
-  //     lastName: 'gerami',
-  //   };
-  //   console.log(test.name);
-  //   const {name} = test;
-  //   console.log(name, 'destr');
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.homeCountainer}>
       <Text>Home Screen</Text>
-      {/* <Button
-        title="go to List Screen"
-        onPress={() => navigation.navigate('ListScreen')}
-      /> */}
       <HgButton
-        type="danger"
-        title="Press Me :)"
+        type="success"
+        title="ListScreen"
+        onPress={() => navigation.navigate('ListScreen')}
+      />
+      <HgButton
+        type="success"
+        title="CounterScreen"
         onPress={() => navigation.navigate('CounterScreen')}
+      />
+      <HgButton
+        type="success"
+        title="ColorGenerator"
+        onPress={() => navigation.navigate('ColorGenerator')}
+      />
+      <HgButton
+        type="success"
+        title="TextScreen"
+        onPress={() => navigation.navigate('TextScreen')}
+      />
+      <HgButton
+        type="success"
+        title="PageLayout"
+        onPress={() => navigation.navigate('PageLayout')}
       />
     </View>
   );
 }
 export default HomeScreen;
 const styles = StyleSheet.create({
+  homeCountainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   imgStyle: {
     width: 300,
     height: 400,

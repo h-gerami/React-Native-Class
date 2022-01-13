@@ -7,15 +7,14 @@ import {
   Button,
   TouchableOpacity,
 } from 'react-native';
+import {CColor} from '../../Global/Style';
 const UserList = props => {
   const {name, lastName, imgSource} = props;
   return (
     <View style={styles.container}>
-      <Text style={styles.textStyle}>{name}</Text>
+      <Text style={styles.textStyle}>{'Name: ' + name}</Text>
       {lastName ? (
-        <View style={styles.lnameStyle}>
-          <Text style={styles.textStyle}>{lastName}</Text>
-        </View>
+        <Text style={styles.textStyle}>{'Last Name: ' + lastName}</Text>
       ) : null}
       {imgSource ? (
         <TouchableOpacity onPress={() => alert(name)}>
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.27,
     shadowRadius: 4.65,
-    backgroundColor: 'white',
+    backgroundColor: CColor.white,
   },
   noPicWrapper: {
     margin: 20,
@@ -67,8 +66,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textStyle: {
-    color: 'green',
-    fontSize: 20,
+    color: CColor.black,
+    fontSize: 14,
   },
   lnameStyle: {
     borderWidth: 1,
