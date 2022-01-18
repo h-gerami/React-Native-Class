@@ -9,6 +9,7 @@ import CounterScreen from './Pages/CounterScreen';
 import ColorGenerator from './Pages/ColorGenerator';
 import TextScreen from './Pages/TextScreen';
 import PageLayout from './Pages/PageLayout';
+import SearchMoviesScreen from './Pages/SearchMoviesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,10 @@ function App() {
         <Stack.Screen name="ColorGenerator" component={ColorGenerator} />
         <Stack.Screen name="TextScreen" component={TextScreen} />
         <Stack.Screen name="PageLayout" component={PageLayout} />
+        <Stack.Screen
+          name="SearchMoviesScreen"
+          component={SearchMoviesScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -32,6 +32,11 @@ function HomeScreen(props) {
         title="PageLayout"
         onPress={() => navigation.navigate('PageLayout')}
       />
+      <HgButton
+        type="success"
+        title="SearchMoviesScreen"
+        onPress={() => navigation.navigate('SearchMoviesScreen')}
+      />
     </View>
   );
 }

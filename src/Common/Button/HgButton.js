@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
-import {CColor} from '../../Global/Style';
+import {CColor, wp} from '../../Global/Style';
 const HgButton = props => {
   const {onPress, type, title} = props;
   const backGroundColorReturner = () => {
@@ -28,7 +28,6 @@ export {HgButton};
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
-    padding: 20,
     alignSelf: 'stretch',
     borderRadius: 10,
     borderWidth: 0.5,
@@ -45,6 +44,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
 
     elevation: 8,
+    height: wp(10),
   },
   buttonText: {
     fontSize: 15,
