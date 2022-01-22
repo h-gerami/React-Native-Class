@@ -1,11 +1,28 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, StyleSheet, FlatList} from 'react-native';
+import {Text, View, StyleSheet, FlatList, Alert} from 'react-native';
 import {MovieItem, SearchBar} from '../Common';
 import {wp} from '../Global/Style';
 import useSearchMovie from '../hooks/useSearchMovie';
-const SearchMoviesScreen = () => {
-  const [searchedText, setSearchedText] = useState('');
-  const [results, errText, searchTheResults] = useSearchMovie();
+interface SearchMoviesScreenType {
+  navigation: any;
+}
+const SearchMoviesScreen = (props: SearchMoviesScreenType) => {
+  const {navigation} = props;
+  const [searchedText, setSearchedText] = useState<string>('');
+  const {results, errText, searchTheResults} = useSearchMovie();
+  // const createThreeButtonAlert = () =>
+  //   Alert.alert('Alert Title', 'My Alert Msg', [
+  //     {
+  //       text: 'Ask me later',
+  //       onPress: () => console.log('Ask me later pressed'),
+  //     },
+  //     {
+  //       text: 'Cancel',
+  //       onPress: () => console.log('Cancel Pressed'),
+  //       style: 'cancel',
+  //     },
+  //     {text: 'OK', onPress: () => console.log('OK Pressed')},
+  //   ]);
   return (
     <View style={styles.container}>
       <SearchBar
@@ -25,9 +42,15 @@ const SearchMoviesScreen = () => {
             justifyContent: 'space-between',
           }}
           renderItem={({item}) => {
-            // poster_path //release_date //original_title
+            // poster_path //release_date //original_title //overview
+
             return (
               <MovieItem
+                onMovieItemClickHandler={() =>
+                  navigation.navigate('MovieDetailsScreen', {
+                    movieData: item,
+                  })
+                }
                 imgSrc={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                 releaseDate={item.release_date}
                 title={item.original_title}

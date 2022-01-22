@@ -1,7 +1,13 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 import {CColor, wp} from '../../Global/Style';
-const HgButton = props => {
+import {buttonBackgroundEnum} from '../../utils/types';
+interface HgButtonType {
+  onPress: () => void;
+  type?: buttonBackgroundEnum;
+  title: string;
+}
+const HgButton = (props: HgButtonType) => {
   const {onPress, type, title} = props;
   const backGroundColorReturner = () => {
     if (type === 'danger') {
@@ -14,11 +20,19 @@ const HgButton = props => {
       return CColor.white;
     }
   };
+  //  ? !
+  const isType = () => {
+    if (type) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <TouchableOpacity
       style={[styles.button, {backgroundColor: backGroundColorReturner()}]}
       onPress={onPress}>
-      <Text style={[styles.buttonText, type && {color: CColor.white}]}>
+      <Text style={[styles.buttonText, isType() && {color: CColor.white}]}>
         {title}
       </Text>
     </TouchableOpacity>

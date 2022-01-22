@@ -1,7 +1,11 @@
 import React from 'react';
 import {Text, View, StyleSheet, TextInput} from 'react-native';
 import {CColor, wp} from '../../Global/Style';
-const HGinput = props => {
+interface HGinputType {
+  inputValue: string;
+  setInputValue: (value: string) => void;
+}
+const HGinput = (props: HGinputType) => {
   const {inputValue, setInputValue} = props;
   return (
     <View>

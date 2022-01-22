@@ -3,7 +3,14 @@ import {Text, View, StyleSheet, TextInput} from 'react-native';
 import {CColor, wp} from '../../Global/Style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {HgButton} from '../Button/HgButton';
-const SearchBar = props => {
+import {buttonBackgroundEnum} from '../../utils/types';
+interface SearchBarType {
+  inputValue: string;
+  setInputValue: (value: string) => void;
+  onSearchButtonClick: () => void;
+  style: object;
+}
+const SearchBar = (props: SearchBarType) => {
   const {inputValue, setInputValue, onSearchButtonClick, style} = props;
   return (
     <View style={[styles.container, style]}>
@@ -21,7 +28,11 @@ const SearchBar = props => {
         />
       </View>
       <View style={styles.buttonWrapper}>
-        <HgButton onPress={onSearchButtonClick} type="success" title="Submit" />
+        <HgButton
+          onPress={onSearchButtonClick}
+          type={buttonBackgroundEnum.primary}
+          title="Submit"
+        />
       </View>
     </View>
   );

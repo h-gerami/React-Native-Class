@@ -2,18 +2,27 @@ import React, {useReducer} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {HgButton} from '../Common';
 import {wp, CColor} from '../Global/Style';
-const reducer = (state, action) => {
+import {buttonBackgroundEnum} from '../utils/types';
+interface ColorGeneratorInitialStateType {
+  red: number;
+  green: number;
+  blue: number;
+}
+const reducer = (
+  state: ColorGeneratorInitialStateType,
+  action: {type: keyof ColorGeneratorInitialStateType; payload: number},
+) => {
   switch (action.type) {
-    case 'changeRed':
+    case 'red':
       return state.red + action.payload > 255 || state.red + action.payload < 0
         ? state
         : {...state, red: state.red + action.payload};
-    case 'changeGreen':
+    case 'green':
       return state.green + action.payload > 255 ||
         state.green + action.payload < 0
         ? state
         : {...state, green: state.green + action.payload};
-    case 'changeBlue':
+    case 'blue':
       return state.blue + action.payload > 255 ||
         state.blue + action.payload < 0
         ? state
@@ -22,7 +31,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-const initialState = {
+const initialState: ColorGeneratorInitialStateType = {
   red: 0,
   green: 0,
   blue: 0,
@@ -35,35 +44,35 @@ const ColorGenerator = () => {
     <View style={styles.container}>
       <Text>Change Red</Text>
       <HgButton
-        onPress={() => dispatch({type: 'changeRed', payload: unit})}
-        type="danger"
+        onPress={() => dispatch({type: 'red', payload: unit})}
+        type={buttonBackgroundEnum.danger}
         title="Increase Red"
       />
       <HgButton
-        onPress={() => dispatch({type: 'changeRed', payload: -1 * unit})}
-        type="danger"
+        onPress={() => dispatch({type: 'red', payload: -1 * unit})}
+        type={buttonBackgroundEnum.danger}
         title="Decrease Red"
       />
       <Text>Change Green</Text>
       <HgButton
-        onPress={() => dispatch({type: 'changeGreen', payload: unit})}
-        type="success"
+        onPress={() => dispatch({type: 'green', payload: unit})}
+        type={buttonBackgroundEnum.success}
         title="Increase Green"
       />
       <HgButton
-        onPress={() => dispatch({type: 'changeGreen', payload: -1 * unit})}
-        type="success"
+        onPress={() => dispatch({type: 'green', payload: -1 * unit})}
+        type={buttonBackgroundEnum.success}
         title="Decrease Green"
       />
       <Text>Change Blue</Text>
       <HgButton
-        onPress={() => dispatch({type: 'changeBlue', payload: unit})}
-        type="primary"
+        onPress={() => dispatch({type: 'blue', payload: unit})}
+        type={buttonBackgroundEnum.primary}
         title="Increase Blue"
       />
       <HgButton
-        onPress={() => dispatch({type: 'changeBlue', payload: -1 * unit})}
-        type="primary"
+        onPress={() => dispatch({type: 'blue', payload: -1 * unit})}
+        type={buttonBackgroundEnum.primary}
         title="Decrease Blue"
       />
       <View

@@ -1,19 +1,21 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {CColor, wp} from '../../Global/Style';
 
 const MovieItem = props => {
-  const {imgSrc, releaseDate, title} = props;
+  const {imgSrc, releaseDate, title, onMovieItemClickHandler} = props;
   return (
-    <View style={styles.container}>
-      <View style={styles.imgWrapper}>
-        <Image source={{uri: imgSrc}} style={styles.img} />
+    <TouchableOpacity onPress={onMovieItemClickHandler} activeOpacity={0.8}>
+      <View style={styles.container}>
+        <View style={styles.imgWrapper}>
+          <Image source={{uri: imgSrc}} style={styles.img} />
+        </View>
+        <View style={styles.detailsWrapper}>
+          <Text style={styles.text}>{releaseDate}</Text>
+          <Text style={styles.text}>{title}</Text>
+        </View>
       </View>
-      <View style={styles.detailsWrapper}>
-        <Text style={styles.text}>{releaseDate}</Text>
-        <Text style={styles.text}>{title}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 export {MovieItem};

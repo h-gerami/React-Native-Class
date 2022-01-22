@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import movieSearcher from '../Services/ServerMovie';
+import {MovieItemType} from '../utils/types';
 export default () => {
-  const [results, setResults] = useState([]);
-  const [errText, setErrText] = useState('');
-  const searchTheResults = async term => {
+  const [results, setResults] = useState<MovieItemType[]>([]);
+  const [errText, setErrText] = useState<string>('');
+  const searchTheResults: (v: string) => void = async (term: string) => {
     setResults([]);
     try {
       const response = await movieSearcher.get('/', {
@@ -21,5 +22,5 @@ export default () => {
   useEffect(() => {
     searchTheResults('spiderman');
   }, []);
-  return [results, errText, searchTheResults];
+  return {results, errText, searchTheResults};
 };

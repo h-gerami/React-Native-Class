@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {HgButton} from '../Common';
 import {CColor} from '../Global/Style';
 const CounterScreen = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState<number>(0);
   return (
     <View style={styles.container}>
       <HgButton title="Increase" onPress={() => setCounter(counter + 1)} />
