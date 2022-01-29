@@ -1,47 +1,57 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {HgButton} from '../Common';
-
-function HomeScreen(props) {
+import {LanguageContext} from '../Context/LanguageContext';
+import {buttonBackgroundEnum} from '../utils/types';
+interface HomeScreenType {
+  navigation: any;
+}
+function HomeScreen(props: HomeScreenType) {
   const {navigation} = props;
+  const lng = useContext(LanguageContext);
   return (
     <View style={styles.homeCountainer}>
-      <Text>Home Screen</Text>
+      <Text>{lng?.language}</Text>
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="ListScreen"
         onPress={() => navigation.navigate('ListScreen')}
       />
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="CounterScreen"
         onPress={() => navigation.navigate('CounterScreen')}
       />
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="ColorGenerator"
         onPress={() => navigation.navigate('ColorGenerator')}
       />
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="TextScreen"
         onPress={() => navigation.navigate('TextScreen')}
       />
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="PageLayout"
         onPress={() => navigation.navigate('PageLayout')}
       />
       <HgButton
-        type="success"
+        type={buttonBackgroundEnum.success}
         title="SearchMoviesScreen"
         onPress={() => navigation.navigate('SearchMoviesScreen')}
       />
-      {/* <HgButton
-        type="success"
-        title="MovieDetailsScreen"
-        onPress={() => navigation.navigate('MovieDetailsScreen')}
-      /> */}
+      <HgButton
+        type={buttonBackgroundEnum.success}
+        title="LoginContainer"
+        onPress={() => navigation.navigate('LoginContainer')}
+      />
+      <HgButton
+        type={buttonBackgroundEnum.success}
+        title="SettingScreen"
+        onPress={() => navigation.navigate('SettingScreen')}
+      />
     </View>
   );
 }

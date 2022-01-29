@@ -3,6 +3,10 @@ export enum buttonBackgroundEnum {
   success = 'success',
   primary = 'primary',
 }
+export enum LanguageEnum {
+  de = 'de',
+  en = 'en',
+}
 export interface MovieItemType {
   adult: boolean;
   backdrop_path: string;

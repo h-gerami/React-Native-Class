@@ -4,12 +4,14 @@ import {CColor, wp} from '../../Global/Style';
 interface HGinputType {
   inputValue: string;
   setInputValue: (value: string) => void;
+  label?: string;
+  style?: object;
 }
 const HGinput = (props: HGinputType) => {
-  const {inputValue, setInputValue} = props;
+  const {inputValue, setInputValue, label, style} = props;
   return (
-    <View>
-      <Text>Name :</Text>
+    <View style={style}>
+      <Text>{label || 'Name :'}</Text>
       <TextInput
         style={styles.input}
         autoCapitalize="none"
