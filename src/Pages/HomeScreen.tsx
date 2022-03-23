@@ -52,6 +52,11 @@ function HomeScreen(props: HomeScreenType) {
         title="SettingScreen"
         onPress={() => navigation.navigate('SettingScreen')}
       />
+      <HgButton
+        type={buttonBackgroundEnum.success}
+        title="NoteScreen"
+        onPress={() => navigation.navigate('NoteScreen')}
+      />
     </View>
   );
 }

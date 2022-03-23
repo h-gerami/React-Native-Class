@@ -8,10 +8,12 @@ interface SearchBarType {
   inputValue: string;
   setInputValue: (value: string) => void;
   onSearchButtonClick: () => void;
-  style: object;
+  style?: object;
+  placeholder?: string;
 }
 const SearchBar = (props: SearchBarType) => {
-  const {inputValue, setInputValue, onSearchButtonClick, style} = props;
+  const {inputValue, setInputValue, onSearchButtonClick, style, placeholder} =
+    props;
   return (
     <View style={[styles.container, style]}>
       <View style={styles.iconWrapper}>
@@ -22,7 +24,7 @@ const SearchBar = (props: SearchBarType) => {
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
-          placeholder="Search ..."
+          placeholder={placeholder || 'Search ...'}
           value={inputValue}
           onChangeText={setInputValue}
         />
